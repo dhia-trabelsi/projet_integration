@@ -42,13 +42,13 @@
             <div class="container">
                 <div class="row">
                     <div class="span3">
-                        <div class="sidebar">
-                        <ul class="widget widget-menu unstyled">
+                    <div class="sidebar">
+                            <ul class="widget widget-menu unstyled">
                                 <li class="active"><a href="/index"><i class="menu-icon icon-home"></i>Home
                                 </a></li>
-                                 <li><a href="/message"><i class="menu-icon icon-inbox"></i>Messages</a>
+                                 <li><a href="/showmessage"><i class="menu-icon icon-inbox"></i>Messages</a>
                                 </li>
-                                <li><a href="/student"><i class="menu-icon icon-user"></i>Manage Students </a>
+                                <li><a href="/showstudent"><i class="menu-icon icon-user"></i>Manage Students </a>
                                 </li>
                                 <li><a href="/allbook"><i class="menu-icon icon-book"></i>All Books </a></li>
                                 <li><a href="/addbook"><i class="menu-icon icon-edit"></i>Add Books </a></li>
@@ -57,7 +57,7 @@
                                 <li><a href="/current"><i class="menu-icon icon-list"></i>Currently Issued Books </a></li>
                             </ul>
                             <ul class="widget widget-menu unstyled">
-                                <li><a href="logout.html"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                                <li><a href="/logout"><i class="menu-icon icon-signout"></i>Logout </a></li>
                             </ul>
                         </div>
                         <!--/.sidebar-->

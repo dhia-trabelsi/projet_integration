@@ -64,7 +64,7 @@
                     </div>
 
                     <div class="span9">
-                  <form class="form-horizontal row-fluid" action="{{ /allbook }}" method="GET" Type="">
+                  <form class="form-horizontal row-fluid" method="GET" Type="">
                                         <div class="control-group">
                                             <label class="control-label" for="Search"><b>Search:</b></label>
                                             <div class="controls">

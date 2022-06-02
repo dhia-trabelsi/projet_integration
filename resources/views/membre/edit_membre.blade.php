@@ -40,21 +40,21 @@
                     <!-- /navbar -->
         <div class="wrapper">
             <div class="container">
-                <div class="row">
+            <div class="row">
                     <div class="span3">
                         <div class="sidebar">
                         <ul class="widget widget-menu unstyled">
-                                <li class="active"><a href="indexm"><i class="menu-icon icon-home"></i>Home
+                                <li class="active"><a href="index_m"><i class="menu-icon icon-home"></i>Home
                                 </a></li>
-                                 <li><a href="messagem"><i class="menu-icon icon-inbox"></i>Messages</a>
+                                 <li><a href="/showmessagem"><i class="menu-icon icon-inbox"></i>Messages</a>
                                 </li>
-                                <li><a href="bookm"><i class="menu-icon icon-book"></i>All Books </a></li>
+                                <li><a href="/membre/allbookm"><i class="menu-icon icon-book"></i>All Books </a></li>
                                 <li><a href="historym"><i class="menu-icon icon-tasks"></i>Previously Borrowed Books </a></li>
-                                <li><a href="recommendationsm"><i class="menu-icon icon-list"></i>Recommend Books </a></li>
+                                <li><a href="/membre/recommand"><i class="menu-icon icon-list"></i>Recommend Books </a></li>
                                 <li><a href="currentm"><i class="menu-icon icon-list"></i>Currently Issued Books </a></li>
                             </ul>
                             <ul class="widget widget-menu unstyled">
-                                <li><a href="logout"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                                <li><a href="/logout"><i class="menu-icon icon-signout"></i>Logout </a></li>
                             </ul>
                         </div>
                     <!--/.sidebar-->
@@ -66,12 +66,16 @@
                                 <h3>Update Details</h3>
                             </div>
                             <div class="module-body">
-                                <form class="form-horizontal row-fluid" action="" method="post">
-
+                                <form class="form-horizontal row-fluid" action="/membre/update_user/{{$user -> id}}" method="post">
+                                @csrf
+                                @method('put')
                                     <div class="control-group">
                                         <label class="control-label" for="Name"><b>Name:</b></label>
                                         <div class="controls">
-                                            <input type="text" id="Name" name="Name" value= "" class="span8" required>
+                                            <input type="text" id="Name" name="name" value= "{{$user -> name}}" class="span8" required>
+                                            @error('name')
+                                                    {{$message}}
+                                                @enderror
                                         </div>
                                     </div>
 
@@ -81,21 +85,31 @@
                                     <div class="control-group">
                                         <label class="control-label" for="EmailId"><b>Email Id:</b></label>
                                         <div class="controls">
-                                            <input type="text" id="EmailId" name="EmailId" value= "" class="span8" required>
+                                            <input type="text" id="EmailId" name="email" value= "{{$user -> email}}" class="span8" required>
+                                            @error('email')
+                                                    {{$message}}
+                                                @enderror
+                                       
                                         </div>
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label" for="MobNo"><b>Mobile Number:</b></label>
+                                        <label class="control-label" for="mobno"><b>Mobile Number:</b></label>
                                         <div class="controls">
-                                            <input type="text" id="MobNo" name="MobNo" value= "" class="span8" required>
+                                            <input disabled type="text" id="mobno" name="mobno" value= "{{$user -> mobno}}" class="span8" required>
+                                            @error('mobno')
+                                                    {{$message}}
+                                                @enderror
                                         </div>
                                     </div>
 
                                     <div class="control-group">
                                         <label class="control-label" for="Password"><b>New Password:</b></label>
                                         <div class="controls">
-                                            <input type="password" id="Password" name="Password"  value= "" class="span8" required>
+                                            <input type="password" id="Password" name="password"  value= "{{$user -> password}}" class="span8" required>
+                                            @error('password')
+                                                    {{$message}}
+                                                @enderror
                                         </div>
                                     </div>   
 

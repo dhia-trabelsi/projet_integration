@@ -16,18 +16,18 @@
             <div class="navbar-inner">
                 <div class="container">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                        <i class="icon-reorder shaded"></i></a><a class="brand" href="indexm">LMS </a>
+                        <i class="icon-reorder shaded"></i></a><a class="brand" href="index_m">LMS </a>
                     <div class="nav-collapse collapse navbar-inverse-collapse">
                         <ul class="nav pull-right">
                             <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="/front_assets/images/user.png" class="nav-avatar" />
                                 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="indexm">Your Profile</a></li>
+                                    <li><a href="index_m">Your Profile</a></li>
                                     <!--li><a href="#">Edit Profile</a></li>
                                     <li><a href="#">Account Settings</a></li-->
                                     <li class="divider"></li>
-                                    <li><a href="logout.html">Logout</a></li>
+                                    <li><a href="/logout">Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -40,21 +40,21 @@
         <!-- /navbar -->
         <div class="wrapper">
             <div class="container">
-                <div class="row">
+            <div class="row">
                     <div class="span3">
-                    <div class="sidebar">
+                        <div class="sidebar">
                         <ul class="widget widget-menu unstyled">
-                                <li class="active"><a href="indexm"><i class="menu-icon icon-home"></i>Home
+                                <li class="active"><a href="index_m"><i class="menu-icon icon-home"></i>Home
                                 </a></li>
-                                 <li><a href="messagem"><i class="menu-icon icon-inbox"></i>Messages</a>
+                                 <li><a href="/showmessagem"><i class="menu-icon icon-inbox"></i>Messages</a>
                                 </li>
-                                <li><a href="bookm"><i class="menu-icon icon-book"></i>All Books </a></li>
+                                <li><a href="/membre/allbookm"><i class="menu-icon icon-book"></i>All Books </a></li>
                                 <li><a href="historym"><i class="menu-icon icon-tasks"></i>Previously Borrowed Books </a></li>
-                                <li><a href="recommendationsm"><i class="menu-icon icon-list"></i>Recommend Books </a></li>
+                                <li><a href="/membre/recommand"><i class="menu-icon icon-list"></i>Recommend Books </a></li>
                                 <li><a href="currentm"><i class="menu-icon icon-list"></i>Currently Issued Books </a></li>
                             </ul>
                             <ul class="widget widget-menu unstyled">
-                                <li><a href="logout"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                                <li><a href="/logout"><i class="menu-icon icon-signout"></i>Logout </a></li>
                             </ul>
                         </div>
                         <!--/.sidebar-->
@@ -64,15 +64,15 @@
                                   <thead>
                                     <tr>
                                       <th>Message</th>
-                                      <th>Date</th>
-                                      <th>Time</th>
+                                      
+                                      
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <tr>
                                         <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        
+                                        
                                       </tr>
                                     </tbody>
                                 </table>

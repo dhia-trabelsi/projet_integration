@@ -72,26 +72,27 @@
                         <table class="table" id = "tables">
                                   <thead>
                                     <tr>
-                                      <th>Roll Number</th>
+                                      <th>user name</th>
                                       <th>Book Id</th>
                                       <th>Book Name</th>
                                       <th>Availabilty</th>
                                       <th></th>
                                     </tr>
                                   </thead>
+                                  @foreach($request as $req)
                                   <tbody>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td><b></b></td>
-                                        <td></td>
+                                        <td>{{$req -> name}}</td>
+                                        <td>{{$req -> books_id}}</td>
+                                        <td><b>{{$req -> titre}}</b></td>
+                                        <td>{{$req -> Availability}}</td>
                                         <td><center>
-                                        <a href="/acceptrenewal" class="btn btn-success">Accept</a>
-                                          
+                                        <a href="/acceptrenewal/{{$req -> books_id}}/{{$req -> users_id}}" class="btn btn-success">Accept</a>
                                           <a href="/rejectrenewal" class="btn btn-danger">Reject</a>
                                       </center></td>
                                       </tr>
                                  </tbody>
+                                 @endforeach
                                   </table>
                               </div>
                       <!--/.span3-->

@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\bookController;
+use App\Http\Controllers\messageController;
+use App\Http\Controllers\requestController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,7 +63,10 @@ Route::get('/addbook', [bookController::class, 'add_book']);
 
 Route::get('/showstudent', [userController::class, 'show_student']);
 Route::get('/studentdetails/{id}', [userController::class, 'student_details']);
+
 Route::get('/showmessage', [userController::class, 'send_message']);
+Route::get('/showmessagem', [userController::class, 'send_messagem']);
+Route::post('/add_message', [messageController::class, 'add']);
 
 
 Route::post('/add', [bookController::class, 'add']);
@@ -69,9 +75,18 @@ Route::get('/bookdetails/{id}', [bookController::class, 'details']);
 Route::get('/edit_book/{id}', [bookController::class, 'edit_book']);
 Route::put('/update_book/{id}', [bookController::class, 'update_book']);
 Route::delete('/destroy/{id}', [bookController::class, 'destroy']);
-Route::post('/allbook', [bookController::class, 'search']);
-
+Route::post('/search', [bookController::class, 'search']);
+Route::get('/recommendations', [bookController::class, 'book_rec']);
 
 Route::get('/membre/bookdetailsm/{id}', [bookController::class, 'detailsm']);
 Route::get('/membre/allbookm', [bookController::class, 'listm']);
+Route::get('/membre/editm', [userController::class, 'edit']);
+Route::put('/membre/update_user/{id}', [userController::class, 'update_user']);
+Route::get('/membre/recommand', [bookController::class, 'recommand']);
 //Route::get('/membre/bookdetailsm/{id}', [bookController::class, 'detailsm']);
+Route::get('/edit_admin', [userController::class, 'edit_sakhta']);
+
+Route::get('/membre/request/{id}', [requestController::class, 'add_request']);
+Route::get('/showrequests',[requestController::class, 'show_request']);
+Route::get('/acceptrenewal/{id}/{id1}',[requestController::class, 'accept']);
+Route::put('/update_admin/{id}', [userController::class, 'update_admin']);

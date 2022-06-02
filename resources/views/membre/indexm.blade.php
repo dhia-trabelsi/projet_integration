@@ -23,7 +23,7 @@
                             <img src="/front_assets/images/user.png" class="nav-avatar" />
                                 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="indexm">Your Profile</a></li>
+                                    <li><a href="index_m">Your Profile</a></li>
                                     <!--li><a href="#">Edit Profile</a></li>
                                     <li><a href="#">Account Settings</a></li-->
                                     <li class="divider"></li>
@@ -46,11 +46,11 @@
                         <ul class="widget widget-menu unstyled">
                                 <li class="active"><a href="index_m"><i class="menu-icon icon-home"></i>Home
                                 </a></li>
-                                 <li><a href="messagem"><i class="menu-icon icon-inbox"></i>Messages</a>
+                                 <li><a href="/showmessagem"><i class="menu-icon icon-inbox"></i>Messages</a>
                                 </li>
                                 <li><a href="/membre/allbookm"><i class="menu-icon icon-book"></i>All Books </a></li>
                                 <li><a href="historym"><i class="menu-icon icon-tasks"></i>Previously Borrowed Books </a></li>
-                                <li><a href="recommendationsm"><i class="menu-icon icon-list"></i>Recommend Books </a></li>
+                                <li><a href="/membre/recommand"><i class="menu-icon icon-list"></i>Recommend Books </a></li>
                                 <li><a href="currentm"><i class="menu-icon icon-list"></i>Currently Issued Books </a></li>
                             </ul>
                             <ul class="widget widget-menu unstyled">
@@ -66,21 +66,26 @@
                                <img class="card-img-top" src="/front_assets/images/profile2.png" alt="Card image cap">
                     			<div class="card-body">
                                     <i>
-                                        <h1 class="card-title"><center></center></h1>
+                                    
+                                        <h1 class="card-title"></h1>
                                         <br>
-                                        <p><b>NAME :</p>
+                                        <p><b>NAME : {{$user -> name}}</p>
+                                        <p></p>
                                         <br>
-                                        <p><b>Email ID:</p>
+                                        <p><b>Email : {{$user -> email}}</p>
+                                        <p></p>
                                         <br>
-                                        <p><b>Mobile number: </p>
+                                        <p><b>Mobile number: {{$user -> mobno}}</p>
+                                        <p></p>
                                         </b>
+                                        
                                     </i>
     
                                     </div>
                                 </div>
                                 <br>
-                                <a href="edit_membre" class="btn btn-primary">Edit Details</a>    
-                              </center>              	
+                                <a href="/membre/editm" class="btn btn-primary">Edit Details</a>    
+                                          	
                         </div>
                         
                         <!--/.span9-->

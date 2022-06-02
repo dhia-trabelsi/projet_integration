@@ -42,15 +42,15 @@
             <div class="container">
                 <div class="row">
                     <div class="span3">
-                        <div class="sidebar">
+                    <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
                                 <li class="active"><a href="/index"><i class="menu-icon icon-home"></i>Home
                                 </a></li>
-                                 <li><a href="/message"><i class="menu-icon icon-inbox"></i>Messages</a>
+                                 <li><a href="/showmessage"><i class="menu-icon icon-inbox"></i>Messages</a>
                                 </li>
-                                <li><a href="/student"><i class="menu-icon icon-user"></i>Manage Students </a>
+                                <li><a href="/showstudent"><i class="menu-icon icon-user"></i>Manage Students </a>
                                 </li>
-                                <li><a href="/book"><i class="menu-icon icon-book"></i>All Books </a></li>
+                                <li><a href="/allbook"><i class="menu-icon icon-book"></i>All Books </a></li>
                                 <li><a href="/addbook"><i class="menu-icon icon-edit"></i>Add Books </a></li>
                                 <li><a href="/requests"><i class="menu-icon icon-tasks"></i>Issue/Return Requests </a></li>
                                 <li><a href="/recommendations"><i class="menu-icon icon-list"></i>Book Recommendations </a></li>
@@ -70,33 +70,36 @@
                                 <h3>Update Details</h3>
                             </div>
                             <div class="module-body">
-                                <form class="form-horizontal row-fluid" action="edit_admin.html" method="post">
-
+                                <form class="form-horizontal row-fluid" action="/update_admin/{{$admin -> id}}" method="post">
+                                @csrf
+                                @method('put')
                                     <div class="control-group">
-                                        <label class="control-label" for="Name"><b>Name:</b></label>
+                                        <label class="control-label" for="name"><b>Name:</b></label>
                                         <div class="controls">
-                                            <input type="text" id="Name" name="Name" value= "" class="span8" required>
+                                            <input type="text" id="Name" name="name" value= "{{$admin -> nom}}" class="span8" required>
+                                            @error('name')
+                                                    {{$message}}
+                                                @enderror
                                         </div>
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label" for="EmailId"><b>Email Id:</b></label>
+                                        <label class="control-label" for="email"><b>Email Id:</b></label>
                                         <div class="controls">
-                                            <input type="text" id="EmailId" name="EmailId" value= "" class="span8" required>
+                                            <input type="text" id="EmailId" name="email" value= "{{$admin -> email}}" class="span8" required>
+                                            @error('email')
+                                                    {{$message}}
+                                                @enderror
                                         </div>
                                     </div>
 
                                     <div class="control-group">
-                                        <label class="control-label" for="MobNo"><b>Mobile Number:</b></label>
+                                        <label class="control-label" for="password"><b>New Password:</b></label>
                                         <div class="controls">
-                                            <input type="text" id="MobNo" name="MobNo" value= "" class="span8" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label" for="Password"><b>New Password:</b></label>
-                                        <div class="controls">
-                                            <input type="password" id="Password" name="Password"  value= "" class="span8" required>
+                                            <input type="password" id="Password" name="password"  value= "" class="span8" required>
+                                            @error('password')
+                                            {{$message}}
+                                            @enderror
                                         </div>
                                     </div>   
 

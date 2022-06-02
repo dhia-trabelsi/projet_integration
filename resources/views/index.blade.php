@@ -54,12 +54,12 @@
                                 </li>
                                 <li><a href="/allbook"><i class="menu-icon icon-book"></i>All Books </a></li>
                                 <li><a href="/addbook"><i class="menu-icon icon-edit"></i>Add Books </a></li>
-                                <li><a href="/requests"><i class="menu-icon icon-tasks"></i>Issue/Return Requests </a></li>
+                                <li><a href="/showrequests"><i class="menu-icon icon-tasks"></i>Issue/Return Requests </a></li>
                                 <li><a href="/recommendations"><i class="menu-icon icon-list"></i>Book Recommendations </a></li>
                                 <li><a href="/current"><i class="menu-icon icon-list"></i>Currently Issued Books </a></li>
                             </ul>
                             <ul class="widget widget-menu unstyled">
-                                <li><a href="logout.html"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                                <li><a href="/logout"><i class="menu-icon icon-signout"></i>Logout </a></li>
                             </ul>
                         </div>
                         <!--/.sidebar-->
@@ -74,10 +74,7 @@
                                     <i>
                                         <h1 class="card-title"><center></center></h1>
                                         <br>
-                                        <p><b>Email ID: </b></p>
-                                        <br>
-                                        <p><b>Mobile number: </b></p>
-                                        </b>
+                                        <p><b>Email : {{$admin -> email}} </b></p>
                                     </i>
     
                                     </div>

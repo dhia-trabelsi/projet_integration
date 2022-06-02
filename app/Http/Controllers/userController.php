@@ -24,7 +24,7 @@ class userController extends Controller
         $user = Admin::where('email', '=', request('Email')) -> first();
         if ($user) {
             if (Hash::check($data['Password'], $user['password'])) {
-                request() -> session() -> put(['nom' => $user -> nom]);
+                request() -> session() -> put(['nom' => $user -> nom, 'user_id' => $user -> id]);
                 return redirect('/index');
             } else {
                 return back() -> withErrors(['Password' => 'le mot de passe est incorrect']);
@@ -33,7 +33,7 @@ class userController extends Controller
             $admin = User::where('email', '=', request('Email')) -> first();
             if ($admin) {
             if (Hash::check($data['Password'], $admin -> password)) {
-                request() -> session() -> put(['nom' => $admin -> nom]);
+                request() -> session() -> put(['nom' => $admin -> nom, 'user_id' => $admin -> id]);
                 return redirect('/membre/index_m');
             } else {
                 return back() -> withErrors(['Password' => 'le mot de passe est incorrect']);
@@ -63,11 +63,16 @@ class userController extends Controller
     }
 
     public function index() {
-        return view('index');
+        return view('index',[
+            'admin' => admin::all()->first()
+        ]);
     }
 
     public function index_m() {
-        return view('membre.indexm');
+        return view('membre.indexm', 
+    [
+        'user' => user::find(session() -> all()['user_id'])
+    ]);
     }
 
     public function logout() {
@@ -91,4 +96,51 @@ class userController extends Controller
             'user' => user::all()
         ]);
     }
+    public function send_messagem(){
+        return view('membre.messagem',[
+            'user' => user::all()
+        ]);
+    }
+    public function edit(){
+        return view('membre.edit_membre',[
+            'user' => user::find(session() -> all()['user_id'])
+        ]);
+    }
+    public function update_user($id) {
+        $val = user::find($id);
+        $data = request() -> validate(
+            [
+                'mobno' => 'required|numeric|min:10000000|max:99999999',
+                'password' => 'required|min:6',
+                'name' => 'required|min:4',
+                'email' => 'required|email'
+            ]
+        );
+        $ok = $val -> update(['mobno' => $data['mobno'], 'namee' => $data['name'], 'email' => $data['email'], 'password' => Hash::make($data['password'])]);
+        return redirect('/membre/index_m');
+    }
+
+    public function edit_sakhta() {
+        return view('edit_admin',[
+            'admin' => admin::all()->first()
+        ]);
+    }
+    public function update_admin($id) {
+        $val = admin::find($id);
+        $data = request() -> validate(
+            [
+                
+                'password' => 'required|min:6',
+                'name' => 'required|min:4',
+                'email' => 'required|email'
+            ]
+        );
+        $ok = $val -> update([ 'namee' => $data['name'], 'email' => $data['email'], 'password' => Hash::make($data['password'])]);
+        return redirect('/index');
+    }
+
 }
+
+/*
+
+*/

@@ -43,22 +43,22 @@
             <div class="container">
                 <div class="row">
                     <div class="span3">
-                        <div class="sidebar">
+                    <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
                                 <li class="active"><a href="/index"><i class="menu-icon icon-home"></i>Home
                                 </a></li>
-                                 <li><a href="/message"><i class="menu-icon icon-inbox"></i>Messages</a>
+                                 <li><a href="/showmessage"><i class="menu-icon icon-inbox"></i>Messages</a>
                                 </li>
-                                <li><a href="/student"><i class="menu-icon icon-user"></i>Manage Students </a>
+                                <li><a href="/showstudent"><i class="menu-icon icon-user"></i>Manage Students </a>
                                 </li>
-                                <li><a href="/book"><i class="menu-icon icon-book"></i>All Books </a></li>
+                                <li><a href="/allbook"><i class="menu-icon icon-book"></i>All Books </a></li>
                                 <li><a href="/addbook"><i class="menu-icon icon-edit"></i>Add Books </a></li>
                                 <li><a href="/requests"><i class="menu-icon icon-tasks"></i>Issue/Return Requests </a></li>
                                 <li><a href="/recommendations"><i class="menu-icon icon-list"></i>Book Recommendations </a></li>
                                 <li><a href="/current"><i class="menu-icon icon-list"></i>Currently Issued Books </a></li>
                             </ul>
                             <ul class="widget widget-menu unstyled">
-                                <li><a href="logout"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                                <li><a href="/logout"><i class="menu-icon icon-signout"></i>Logout </a></li>
                             </ul>
                         </div>
                         <!--/.sidebar-->
@@ -77,25 +77,22 @@
                                     <br >
 
                                     <form class="form-horizontal row-fluid" action="/add_message" method="post">
+                                    @csrf
                                         <div class="control-group">
-                                            <label class="control-label" for="user_id"><b>Receiver Name:</b></label>
-
-
-
-                                            
-                                            <select name="user" >
+                                            <label class="control-label" for="user_id"><b>Receiver Name:</b></label> <select name="user_id" >
                                                     @foreach($user as $s)
                                                         <option value="{{$s -> id}}">{{$s -> name}}</option>
                                                     @endforeach
                                                 </select>
-                                                
-                                            </div>
-                                            
                                         </div>
+                                 </div>
                                         <div class="control-group">
                                             <label class="control-label" for="Message"><b>Message:</b></label>
+                                            @error('message')
+				                            {{$message}}
+				                                @enderror
                                             <div class="controls">
-                                                <input type="text" id="Message" name="Message" placeholder="Enter Message" class="span8" required>
+                                                <input type="text" id="Message" name="message" placeholder="Enter Message" class="span8" required>
                                             </div>
                                             <hr>
                                         <div class="control-group">

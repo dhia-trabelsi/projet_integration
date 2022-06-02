@@ -57,7 +57,7 @@ class bookController extends Controller
 
     public function edit_book($id) {
         return view('edit_book', [
-            'book' => book::find($id) -> get() -> first(),
+            'book' => book::find($id) -> get() -> first() ,
             'authors' => author::all(),
             'publishers' => publisher::all()
         ]);
@@ -84,11 +84,10 @@ class bookController extends Controller
         return redirect('/allbook');
     }
     public function search(Request $request){
-        //$res=$_GET['title'];
-        //$val=book::where('titre',LIKE,$res) -> get();
-        //return view('book',compact($val));
-        $name = $request ->title;
-        return view('allbook');
+        $res=$_GET['title'];
+        $val= book::where('name','LIKE','%'.$res.'%') -> get();
+        return view('book.search',compact($val));
+        
     }
     
 
@@ -106,7 +105,12 @@ class bookController extends Controller
             'publishers' => publisher::all()
         ]);
     }
+    public function recommand(){
+        return view('membre.recommendationsm');
+    }
 
 
-    
+    public function book_rec(){
+        return view('recommendations');
+    }
 }

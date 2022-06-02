@@ -23,7 +23,7 @@
                             <img src="/front_assets/images/user.png" class="nav-avatar" />
                                 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="membre/indexm">Your Profile</a></li>
+                                    <li><a href="/membre/index_m">Your Profile</a></li>
                                     <!--li><a href="#">Edit Profile</a></li>
                                     <li><a href="#">Account Settings</a></li-->
                                     <li class="divider"></li>
@@ -40,21 +40,21 @@
         <!-- /navbar -->
         <div class="wrapper">
             <div class="container">
-                <div class="row">
+            <div class="row">
                     <div class="span3">
                         <div class="sidebar">
                         <ul class="widget widget-menu unstyled">
                                 <li class="active"><a href="index_m"><i class="menu-icon icon-home"></i>Home
                                 </a></li>
-                                 <li><a href="messagem"><i class="menu-icon icon-inbox"></i>Messages</a>
+                                 <li><a href="/showmessagem"><i class="menu-icon icon-inbox"></i>Messages</a>
                                 </li>
                                 <li><a href="/membre/allbookm"><i class="menu-icon icon-book"></i>All Books </a></li>
                                 <li><a href="historym"><i class="menu-icon icon-tasks"></i>Previously Borrowed Books </a></li>
-                                <li><a href="recommendationsm"><i class="menu-icon icon-list"></i>Recommend Books </a></li>
+                                <li><a href="/membre/recommand"><i class="menu-icon icon-list"></i>Recommend Books </a></li>
                                 <li><a href="currentm"><i class="menu-icon icon-list"></i>Currently Issued Books </a></li>
                             </ul>
                             <ul class="widget widget-menu unstyled">
-                                <li><a href="logout"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                                <li><a href="/logout"><i class="menu-icon icon-signout"></i>Logout </a></li>
                             </ul>
                         </div>
                         <!--/.sidebar-->
@@ -88,7 +88,7 @@
                                         <td><b>{{$b -> Availability}}</b></td>
                                           <td style="display: flex; flex-direction: row; justify-content: space-between">
                                               <a href="/membre/bookdetailsm/{{$b -> id}}" class="btn btn-primary">Details</a>
-                                              
+                                              <a href="/membre/request/{{$b -> id}}" class="btn btn-success">Issue</a>
                                             </td>
                                       </tr>
                                     @endforeach
